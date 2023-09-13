@@ -18,8 +18,6 @@ class PageOne extends StatelessWidget {
     "Manajemen Bisnis"
   ];
 
-  String selectedValue = "";
-
   final _formKey = GlobalKey<FormState>();
 
   @override
