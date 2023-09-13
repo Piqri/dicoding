@@ -2,11 +2,15 @@ import 'package:apps_project/widget.dart';
 import 'package:flutter/material.dart';
 
 class PageTwo extends StatelessWidget {
-  PageTwo({required this.name, required this.campus, required this.major});
+  const PageTwo(
+      {super.key,
+      required this.name,
+      required this.campus,
+      required this.major});
 
-  String name;
-  String campus;
-  String major;
+  final String name;
+  final String campus;
+  final String major;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
