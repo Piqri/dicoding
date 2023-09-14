@@ -14,22 +14,45 @@ Widget texfield(TextEditingController nameController, String hintText) {
       return null;
     },
     decoration: InputDecoration(
-      border: OutlineInputBorder(),
+      border: const OutlineInputBorder(),
       hintText: hintText,
     ),
   );
 }
 
-Widget button(String buttonName, String buttonType, Function()? func) {
+Widget button1(String buttonName, String buttonType, Function()? func,
+    Icon icon, String text) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.black,
       minimumSize: const Size.fromHeight(50),
     ),
     onPressed: func,
-    child: const Text(
-      'Submit',
-      style: TextStyle(fontSize: 24),
+    child: Text(
+      text,
+      style: const TextStyle(fontSize: 24),
     ),
+  );
+}
+
+Widget button(String buttonName, String buttonType, Function()? func,
+    var _isLoading, var _onSubmit, String text) {
+  return ElevatedButton.icon(
+    onPressed: _isLoading ? null : _onSubmit,
+    style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
+        padding: const EdgeInsets.all(16.0)),
+    icon: _isLoading
+        ? Container(
+            width: 24,
+            height: 24,
+            padding: const EdgeInsets.all(2.0),
+            child: const CircularProgressIndicator(
+              color: Colors.white,
+              strokeWidth: 3,
+            ),
+          )
+        : const Icon(Icons.feedback),
+    label: Text(text),
   );
 }
